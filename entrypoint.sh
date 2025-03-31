@@ -155,3 +155,4 @@ if [ "$(basename $1)" == "$DAEMON" ]; then
 else
     exec "$@"
 fi
+
