@@ -27,7 +27,7 @@ function vmtLogin() {
   vmtLogout
   local login="http://${TURBOADDR}/vmturbo/rest/login"
   echo Login response:
-  curl -s -k -K POST -d "username=${TURBOUSER}&password=${TURBOPASS}" -c $cookies $login \
+  curl -s -k -d "username=${TURBOUSER}&password=${TURBOPASS}" -c $cookies $login \
      | python -m json.tool
 }
 
@@ -41,7 +41,7 @@ function vmtCreateTarget() {
     local payload="$(getRequest "$pkey")"
     echo $payload
     echo Target creation response:
-    curl -s -k -K POST -d "$payload" -H 'Content-Type: application/json' -b $cookies "$url" \
+    curl -s -k -d "$payload" -H 'Content-Type: application/json' -b $cookies "$url" \
 	| python -m json.tool
 }
 
